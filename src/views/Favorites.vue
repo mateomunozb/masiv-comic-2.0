@@ -1,7 +1,7 @@
 <template>
   <div>
     <main-layout>
-      Comic
+      <div>Hola</div>
     </main-layout>
   </div>
 </template>
@@ -10,7 +10,7 @@
 import MainLayout from '../components/MainLayout.vue';
 
 export default {
-  name: 'Home',
+  name: 'Favorites',
   components: { MainLayout },
 };
 </script>
