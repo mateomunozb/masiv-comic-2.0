@@ -7,6 +7,7 @@ const randomNumber = (number) => Math.round(Math.random() * (number - 1) + 1);
 
 export const actions = {
   [types.actions.GET_CURRENT_COMIC]({ commit }) {
+    commit(types.mutations.SET_IS_LOADING_VIEW, true);
     return comicApi.getCurrentComic().then((response) => {
       commit(types.mutations.SET_CURRENT_COMIC_NUMBER, response.data.num);
     }).catch((error) => {
@@ -14,11 +15,14 @@ export const actions = {
     });
   },
   [types.actions.GET_RANDOM_COMIC]({ commit, state }) {
+    commit(types.mutations.SET_IS_LOADING_VIEW, true);
     const randomComicNumber = randomNumber(state.currentComicNumber);
     comicApi.getRandomComic(randomComicNumber).then((response) => {
       commit(types.mutations.SET_COMIC_DATA, response.data);
     }).catch((error) => {
       console.error(`Error: ${error}`);
+    }).finally(() => {
+      commit(types.mutations.SET_IS_LOADING_VIEW, false);
     });
   },
   [types.actions.ADD_FAVORITE_COMIC]({ commit, state }) {

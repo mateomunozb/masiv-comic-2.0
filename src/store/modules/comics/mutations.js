@@ -10,6 +10,9 @@ export const mutations = {
   [types.mutations.SET_FAVORITE_COMIC](state, payload) {
     state.favoritesComics = payload;
   },
+  [types.mutations.SET_IS_LOADING_VIEW](state, payload) {
+    state.isLoadingView = payload;
+  },
 };
 
 export default {};

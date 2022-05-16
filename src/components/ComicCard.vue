@@ -1,5 +1,5 @@
 <template>
-  <div class="container p-6 is-flex is-flex-direction-column is-align-items-center">
+  <div>
     <div class="card">
       <div class="card-image">
         <figure class="image">

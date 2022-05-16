@@ -5,6 +5,7 @@ import { MODULE_COMIC } from './types';
 export const module = {
   namespaced: true,
   state: {
+    isLoadingView: false,
     comicData: {},
     currentComicNumber: null,
     favoritesComics: {},
