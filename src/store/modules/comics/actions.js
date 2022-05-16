@@ -45,6 +45,11 @@ export const actions = {
     }
     commit(types.mutations.SET_FAVORITE_COMIC, comics);
   },
+  [types.actions.DELETE_FAVORITE_COMIC]({ commit, state }, payload) {
+    const comics = { ...state.favoritesComics };
+    delete comics[payload];
+    commit(types.mutations.SET_FAVORITE_COMIC, comics);
+  },
   [types.actions.ADD_COMIC_RATING]({ commit, state }, payload) {
     const newRating = { ...state.favoritesComics };
     newRating[payload.key].rating = payload.rate;

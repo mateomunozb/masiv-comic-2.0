@@ -13,6 +13,7 @@ export const typesComic = {
     GET_RANDOM_COMIC: '@actions/getRandomComic',
     ADD_COMIC_RATING: '@actions/addComicRating',
     ADD_FAVORITE_COMIC: '@actions/addFavoriteComic',
+    DELETE_FAVORITE_COMIC: '@actions/deleteFavoriteComic',
   },
 };
 

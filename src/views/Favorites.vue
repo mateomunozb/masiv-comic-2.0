@@ -22,6 +22,14 @@
               </div>
             </div>
           </div>
+          <footer class="card-footer is-flex is-justify-content-end">
+            <button
+              class="button is-danger is-rounded is-size-5 m-3"
+              @click="deleteFavoriteComic(key)"
+            >
+              <em class="fa-solid fa-trash mr-2"></em>Delete
+            </button>
+          </footer>
         </div>
       </div>
     </main-layout>
@@ -46,10 +54,13 @@ export default {
   methods: {
     ...mapActions(types.PATH, {
       addComicRating: types.actions.ADD_COMIC_RATING,
+      deleteFavoriteComic: types.actions.DELETE_FAVORITE_COMIC,
     }),
     rating(key, model) {
       this.addComicRating({ key, rate: model });
     },
+  },
+  mounted() {
   },
 };
 </script>
