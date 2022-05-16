@@ -1,5 +1,5 @@
 .main-layout {
-  height: 100vh;
+  min-height: 100vh;
   @include labelStyles();
   align-content: space-between;
   display: flex;
@@ -8,7 +8,7 @@
     width: 100%;
     .navbar-brand {
       h1 {
-        @include labelStyles(400, 40px, 60px);
+        @include labelStyles(400, 35px, 60px);
       }
     }
     .navbar-end{
@@ -38,6 +38,9 @@
       display: flex;
       align-items: center;
       @include labelStyles(700, 25px, 42px);
+      a {
+        margin: 0 5px;
+      }
     }
   }
 }

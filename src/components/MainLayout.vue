@@ -33,13 +33,13 @@
           xkcd
         </a>
         <a href="https://github.com/mateomunozb" target="__blank">
-          <ion-icon class="mx-2 has-text-light" name="logo-github"/>
+          <em class="fa-brands fa-github has-text-light"/>
         </a>
         <a href="https://linkedin.com/in/mateomuñozb" target="__blank">
-          <ion-icon class="has-text-danger" name="logo-linkedin"/>
+          <em class="fa-brands fa-linkedin has-text-danger"/>
         </a>
         <a href="https://twitter.com/mambu_4" target="__blank">
-          <ion-icon class="mx-2 has-text-light" name="logo-twitter"/>
+          <em class="fa-brands fa-twitter has-text-light"/>
         </a>
       </div>
     </footer>
