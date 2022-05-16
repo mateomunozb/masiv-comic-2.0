@@ -5,7 +5,9 @@ import { MODULE_COMIC } from './types';
 export const module = {
   namespaced: true,
   state: {
-    currentComic: {},
+    comicData: {},
+    currentComicNumber: null,
+    favoritesComics: {},
   },
   actions,
   mutations,

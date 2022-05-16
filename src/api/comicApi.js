@@ -8,4 +8,8 @@ export default class ComicApi {
   getCurrentComic() {
     return axios(this.url);
   }
+
+  getRandomComic(payload) {
+    return axios(`${this.url}?comic=${payload}`);
+  }
 }
