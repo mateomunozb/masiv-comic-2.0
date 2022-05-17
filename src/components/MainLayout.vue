@@ -67,7 +67,6 @@ export default {
     toggleNav() {
       const burgerIcon = document.getElementById('burger');
       const dropMenu = document.getElementById('menuList');
-      console.log('TCL: ~ dropMenu', dropMenu);
       burgerIcon.classList.toggle('is-active');
       dropMenu.classList.toggle('is-active');
     },
