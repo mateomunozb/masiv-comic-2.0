@@ -10,7 +10,7 @@
         <div class="media">
           <div class="media-content">
             <p class="title is-2">{{ comicData.title }}</p>
-            <p class="subtitle is-6">
+            <p class="subtitle is-5">
               Num. {{ comicData.num }}
             </p>
           </div>
@@ -30,20 +30,12 @@
             </button>
           </div>
         </div>
-        <div class="content">
-          {{ comicData.alt }}
-          <br>
-          <span>
-            <em>{{ formatDate }}</em>
-          </span>
-        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import moment from 'moment';
 import { mapActions, mapState } from 'vuex';
 import { typesComic as types } from '@/store/modules/comics/types';
 
@@ -53,26 +45,10 @@ export default {
     ...mapState(types.PATH, [
       'comicData',
     ]),
-    formatDate() {
-      return moment({
-        year: this.comicData.year,
-        month: this.comicData.month - 1,
-        day: this.comicData.day,
-      }).format('MMMM Do YYYY');
-    },
-    rate: {
-      get() {
-        return this.comicData.rating;
-      },
-      set(val) {
-        this.addComicRating(val);
-      },
-    },
   },
   methods: {
     ...mapActions(types.PATH, {
       getRandomComic: types.actions.GET_RANDOM_COMIC,
-      addComicRating: types.actions.ADD_COMIC_RATING,
       addFavoriteComic: types.actions.ADD_FAVORITE_COMIC,
     }),
   },

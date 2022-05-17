@@ -12,12 +12,14 @@
                 </figure>
               </div>
               <div class="media-content">
-                <p class="title is-4">{{ item.title }} ({{ item. num }})</p>
-                <p class="subtitle is-6">{{ item.alt }}</p>
+                <p class="title is-2">{{ item.title }} (Num. {{ item. num }})</p>
+                <p class="subtitle is-4">{{ formatDate(item) }}</p>
+                <p class="is-size-3"> {{item.alt}} </p>
                 <rating
                   :grade="item.rating"
                   @change="rating(key, item.rating)"
                   v-model="item.rating"
+                  class="m-3"
                 />
               </div>
             </div>
@@ -37,6 +39,7 @@
 </template>
 
 <script>
+import moment from 'moment';
 import { mapActions, mapState } from 'vuex';
 import { typesComic as types } from '@/store/modules/comics/types';
 
@@ -59,8 +62,13 @@ export default {
     rating(key, model) {
       this.addComicRating({ key, rate: model });
     },
-  },
-  mounted() {
+    formatDate(payload) {
+      return moment({
+        year: payload.year,
+        month: payload.month - 1,
+        day: payload.day,
+      }).format('MMMM Do YYYY');
+    },
   },
 };
 </script>

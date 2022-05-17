@@ -43,8 +43,5 @@ export default {
       }
     },
   },
-  // mounted() {
-  //   this.stars = this.grade;
-  // },
 };
 </script>

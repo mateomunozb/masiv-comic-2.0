@@ -5,17 +5,25 @@
         <a class="navbar-item" href="/">
           <h1 class="has-text-danger">Random Comic</h1>
         </a>
+        <a role="button"
+          class="navbar-burger has-text-light"
+          id="burger"
+          @click="toggleNav"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
       </div>
-      <div class="navbar-menu">
+
+      <div id="menuList" class="navbar-menu has-background-black">
         <div class="navbar-end">
-          <div class="navbar-item has-text-light">
-            <router-link class="has-text-light" to="/">
-              Home
-            </router-link>
-            <router-link class="has-text-light" to="/favorites">
-              Favorites
-            </router-link>
-          </div>
+          <router-link class=" navbar-item has-text-light" to="/">
+            Home
+          </router-link>
+          <router-link class="navbar-item has-text-light" to="/favorites">
+            Favorites
+          </router-link>
         </div>
       </div>
     </nav>
@@ -50,5 +58,19 @@
 <script>
 export default {
   name: 'MainLayout',
+  data() {
+    return {
+      mobile: false,
+    };
+  },
+  methods: {
+    toggleNav() {
+      const burgerIcon = document.getElementById('burger');
+      const dropMenu = document.getElementById('menuList');
+      console.log('TCL: ~ dropMenu', dropMenu);
+      burgerIcon.classList.toggle('is-active');
+      dropMenu.classList.toggle('is-active');
+    },
+  },
 };
 </script>
