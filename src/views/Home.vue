@@ -1,18 +1,41 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <main-layout>
+      <div class="container p-6 is-flex is-flex-direction-column is-align-items-center">
+        <loader v-if="isLoadingView"/>
+        <comic-card v-else/>
+      </div>
+    </main-layout>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+import { mapActions, mapState } from 'vuex';
+import { typesComic as types } from '@/store/modules/comics/types';
+
+import ComicCard from '../components/ComicCard.vue';
+import MainLayout from '../components/MainLayout.vue';
+import Loader from '../components/Loader.vue';
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld,
+    MainLayout,
+    ComicCard,
+    Loader,
+  },
+  computed: {
+    ...mapState(types.PATH, ['isLoadingView']),
+  },
+  methods: {
+    ...mapActions(types.PATH, {
+      getCurrentComic: types.actions.GET_CURRENT_COMIC,
+      getRandomComic: types.actions.GET_RANDOM_COMIC,
+    }),
+  },
+  async mounted() {
+    await this.getCurrentComic();
+    this.getRandomComic();
   },
 };
 </script>

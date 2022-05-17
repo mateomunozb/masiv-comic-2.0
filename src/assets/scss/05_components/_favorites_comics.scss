@@ -1,0 +1,14 @@
+.favorites-comics {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .card{
+    width: 100%;
+    margin: 16px 0;
+    img {
+      width: 300px;
+      height: 300px;
+    }
+  }
+}
